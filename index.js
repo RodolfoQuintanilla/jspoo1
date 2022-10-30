@@ -1,59 +1,53 @@
-class cliente {
-  nombreCliemete
-  dniClienete
-  numeroCuenta
-  saldoCuenta
-}
+/*Importación de clases*/
+import { Cliente } from "./Cliente.js";
+import { CuentaCorriente } from "./CuentaCorriente.js";
 
-class cuentaCorriente {
-  numero
-  saldo
-  agencia
+const cliente = new Cliente();
+cliente.nombreCliente = "Leonardo";
+cliente.dniCliente = "13804050";
+cliente.rutCliente = "123224";
 
-  constructor() {
-    this.saldo = 0
-    this.numero = ''
-    this.agencia = ''
-  }
+const cuentaDeLeonardo = new CuentaCorriente();
+cuentaDeLeonardo.numero = "1";
+cuentaDeLeonardo.agencia = "001";
+cuentaDeLeonardo.cliente = cliente;
 
-  depositoEnCuenta(valor) {
-    if (valor > 0) {
-      this.saldo = this.saldo + valor
-    }
-  }
+//cuentaDeLeonardo.#saldo = 10;
+let saldo = cuentaDeLeonardo.verSaldo();
 
-  retirarDeCuenta(valor) {
-    if (valor <= this.saldo) {
-      this.saldo = this.saldo - valor
-    }
-  }
-}
+saldo = cuentaDeLeonardo.depositoEnCuenta(150);
+console.log("El Saldo actual (CuentaLeonardo) " + saldo);
 
-const cliente1 = new cliente()
-cliente1.nombreCliemete = 'jose'
-cliente1.dniClienete = '1522125'
-cliente1.numeroCuenta = '5515484'
-cliente1.saldoCuenta = '5'
+const cliente2 = new Cliente();
+cliente2.nombreCliente = "Maria";
+cliente2.dniCliente = "16979808";
+cliente2.rutCliente = "8989";
 
-const cliente2 = new cliente()
-cliente1.nombreCliemete = 'jose'
-cliente1.dniClienete = '1522125'
-cliente1.numeroCuenta = '5515484'
-cliente1.saldoCuenta = '5'
+const cuentaDeMaria = new CuentaCorriente();
+cuentaDeMaria.numero = "2";
+cuentaDeMaria.agencia = "002";
+cuentaDeMaria.cliente = cliente2;
 
-const cuentaCorriente1 = new cuentaCorriente()
-cuentaCorriente1.numero = 2334
-cuentaCorriente1.saldo = 234324
-cuentaCorriente1.agencia = 'lui'
+console.log(cuentaDeMaria.cliente);
 
-const cuentaCorriente2 = new cuentaCorriente()
-cuentaCorriente2.numero = 2334
-cuentaCorriente2.saldo = 234324
-cuentaCorriente2.agencia = 'lui'
+cuentaDeMaria.cliente = 0;
 
-const curntaLeonardo = new cuentaCorriente()
+console.log(cuentaDeMaria.cliente);
 
-curntaLeonardo.depositoEnCuenta(500)
-console.log(curntaLeonardo)
-curntaLeonardo.retirarDeCuenta(500)
-console.log(curntaLeonardo)
+let parametroValor = 100;
+/*
+console.log('Parámetro Valor',parametroValor);
+cuentaDeLeonardo.transferirParaCuenta(parametroValor,cuentaDeMaria);
+console.log('Parámetro Valor',parametroValor);
+
+const saldoMaria = cuentaDeMaria.verSaldo();
+
+console.log('Cuenta de Maria',cuentaDeMaria);
+
+
+
+console.log('El Saldo actual (cuentaMaria) '+saldoMaria);
+
+const saldoLeonardo = cuentaDeLeonardo.verSaldo();
+console.log('El Saldo actual (cuentaLeonardo) '+saldoLeonardo);
+*/
